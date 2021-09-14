@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using KamelijaWeb.ViewModels;
 
 namespace KamelijaWeb.Controllers
 {
@@ -17,10 +18,13 @@ namespace KamelijaWeb.Controllers
         [HttpGet("Contact")]
         public IActionResult Contact()
         {
-            ViewBag.Title = "Контактирајте не";
-
-            //throw new InvalidOperationException("bad thing");
+         
             
+            return View();
+        }
+        [HttpPost("contact")]
+        public IActionResult Contact(ContactViewModel model)
+        { 
             return View();
         }
         public IActionResult About()
