@@ -14,10 +14,13 @@ namespace KamelijaWeb.Controllers
             
             return View();
         }
+        [HttpGet("Contact")]
         public IActionResult Contact()
         {
             ViewBag.Title = "Контактирајте не";
 
+            //throw new InvalidOperationException("bad thing");
+            
             return View();
         }
         public IActionResult About()
