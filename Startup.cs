@@ -26,6 +26,10 @@ namespace KamelijaWeb
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/error");
+            }
            
             app.UseStaticFiles();
             app.UseRouting();
