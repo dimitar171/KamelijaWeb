@@ -5,11 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using KamelijaWeb.ViewModels;
+using KamelijaWeb.Services;
 
 namespace KamelijaWeb.Controllers
 {
     public class AppController: Controller
     {
+        private readonly IMailService _mailService;
+        public AppController(IMailService mailService)
+        {
+            _mailService = mailService;
+        }
         public IActionResult Index()
         {
             
@@ -25,15 +31,16 @@ namespace KamelijaWeb.Controllers
         [HttpPost("contact")]
         public IActionResult Contact(ContactViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-               
-            }
-            else
-            {
-               //
-            }
-            return View();
+           
+                if (ModelState.IsValid)
+                {
+                    // Send the Email
+                    _mailService.SendMessage("shawn@wildermuth.com", model.Subject, $"From: {model.Name} - {model.Email}, Message: {model.Message}");
+                    ViewBag.UserMessage = "Mail Sent...";
+                    ModelState.Clear();
+                }
+
+                return View();
 
         }
         public IActionResult About()
