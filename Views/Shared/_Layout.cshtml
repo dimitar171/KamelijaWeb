@@ -3,27 +3,33 @@
 <html>
 <head>
     <title>Cvekjara Kamelija @ViewBag.Title</title>
+
+    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
 </head>
 <body>
-    <section>
-        <header><h1>Добредојдовте</h1>
-        <menu>
-            <ul>
-                <li><a asp-controller="App" asp-action="Index">Дома</a></li>
-                <li><a asp-controller="App" asp-action="Contact">Контакт</a></li>
-                <li><a asp-controller="App" asp-action="About">За нас</a></li>
-            </ul>
-        </menu>
+        <header class="container">
+            <h1>Добредојдовте</h1>
+            <menu>
+                <ul>
+                    <li><a asp-controller="App" asp-action="Index">Дома</a></li>
+                    <li><a asp-controller="App" asp-action="Contact">Контакт</a></li>
+                    <li><a asp-controller="App" asp-action="About">За нас</a></li>
+                </ul>
+            </menu>
         </header>
+    <section class="container">
         <h2>@ViewBag.Title</h2>
         @RenderBody();
     </section>
-    <footer> 2021 Цвеќара Камелија ДОЕЛ</footer>
-    
+    <footer class="container"> 
+        <div class="text-center">2021 Цвеќара Камелија ДОЕЛ</div>
+    </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="~/js/index.js"></script>
-    @RenderSection("Scripts",false)
+    @RenderSection("Scripts", false)
 </body>
 </html>
