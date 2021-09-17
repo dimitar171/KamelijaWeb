@@ -3,59 +3,64 @@
 @{
     ViewBag.Title = "Home Page";
 }
+<div>
+    <div class="col-md-9" >
+        <div class="product-info">
+            <img src="~/img/Naslovna.png" />
+            <h3>Цвеќе</h3>
+            <ul class="products-props">
+                <li>Цена: $9.99</li>
+                <li>Изработил: </li>
+                <li>Вид: </li>
+                <li>Опис: </li>
+            </ul>
+            <button id="buyButton" class="btn btn-success">Купи</button>
+        </div>
 
-
-    <div class="product-info">
-        <img src="~/img/Naslovna.png" />
-        <h3>Цвеќе</h3>
-        <ul class="products-props">
-            <li>Цена: $9.99</li>
-            <li>Изработил: </li>
-            <li>Вид: </li>
-            <li>Опис: </li>
-        </ul>
-        <button id="buyButton" class="btn btn-success">Купи</button>
-    </div>
-
-    <div id="theForm">
-        <form>
-            <label>Корисник:</label>
-            <br />
-            <input />
-            <br />
-            <label>Email:</label>
-            <br />
-            <input type="email" />
-            <br />
-            <label>Тема:</label>
-            <br />
-            <input type="text" />
-            <br />
-            <label>Порака:</label>
-            <br />
-            <textarea rows="4"> </textarea>
-            <br />
-            <input type="submit" value="Send Message" />
-        </form>
-    </div>
-
-    <div>
-        <div id="loginToggle">Логирај</div>
-        <form class="popup-form">
-            <div>
-                <label>Корисник</label>
+        <div id="theForm">
+            <form>
+                <label>Корисник:</label>
+                <br />
                 <input />
-            </div>
-            <div>
-                <label>Пасворд</label>
-                <input type="password" />
-            </div>
-            <div>
-                <input type="checkbox" />
-                <label>Познат корисник?</label>
-            </div>
-            <div>
-                <input type="submit" value="Логирај" />
-            </div>
-        </form>
+                <br />
+                <label>Email:</label>
+                <br />
+                <input type="email" />
+                <br />
+                <label>Тема:</label>
+                <br />
+                <input type="text" />
+                <br />
+                <label>Порака:</label>
+                <br />
+                <textarea rows="4"> </textarea>
+                <br />
+                <input type="submit" value="Send Message" />
+            </form>
+        </div>
+
+        <div>
+            <div id="loginToggle">Логирај</div>
+            <form class="popup-form">
+                <div>
+                    <label>Корисник</label>
+                    <input />
+                </div>
+                <div>
+                    <label>Пасворд</label>
+                    <input type="password" />
+                </div>
+                <div>
+                    <input type="checkbox" />
+                    <label>Познат корисник?</label>
+                </div>
+                <div>
+                    <input type="submit" value="Логирај" />
+                </div>
+            </form>
+        </div>
     </div>
+    <div class="col-md-3">
+        <p>tihs is bla</p>
+    </div>
+</div>
