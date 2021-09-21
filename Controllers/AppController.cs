@@ -6,15 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using KamelijaWeb.ViewModels;
 using KamelijaWeb.Services;
+using KamelijaWeb.Data;
 
 namespace KamelijaWeb.Controllers
 {
     public class AppController: Controller
     {
         private readonly IMailService _mailService;
-        public AppController(IMailService mailService)
+        private readonly KamContext _context;
+
+        public AppController(IMailService mailService, KamContext context)
         {
             _mailService = mailService;
+            _context = context;
         }
         public IActionResult Index()
         {
@@ -47,6 +51,13 @@ namespace KamelijaWeb.Controllers
         {
             ViewBag.Title = "За Нас";
             return View();
+        }
+        public IActionResult Shop()
+        {
+            var results = from p in _context.Products
+                         orderby p.Category
+                         select p;
+            return View(results.ToList());
         }
     }
 }
