@@ -20,6 +20,8 @@ namespace KamelijaWeb.Data
         }
         public DbSet<Product> Products{ get; set; }
         public DbSet<Order> Orders { get; set; }
+        public string ContentRootPath { get; internal set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);

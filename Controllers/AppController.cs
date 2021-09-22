@@ -22,7 +22,7 @@ namespace KamelijaWeb.Controllers
         }
         public IActionResult Index()
         {
-            
+            var results = _context.Products.ToList();
             return View();
         }
         [HttpGet("Contact")]
