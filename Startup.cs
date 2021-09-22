@@ -22,6 +22,8 @@ namespace KamelijaWeb
             
             services.AddDbContext<KamContext>();
             services.AddTransient<KamSeeder>();
+            services.AddScoped<IKamRepository, KamRepository>();
+
             services.AddTransient<IMailService, NullMailService>();
             services.AddControllersWithViews()
                 .AddRazorRuntimeCompilation();

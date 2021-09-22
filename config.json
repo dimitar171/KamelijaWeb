@@ -4,5 +4,13 @@
   },
   "ConnectionStrings": {
     "KamContextDb": "Data Source=(localdb)\\ProjectsV13;Initial Catalog=KamelijaWebDB;Integrated Security=True;Connect Timeout=30;MultipleActiveResultSets=true;"
+  },
+  "Loggin": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft":"Warning"
+      
+       
+    }
   }
 }

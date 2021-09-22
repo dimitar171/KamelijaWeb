@@ -13,16 +13,16 @@ namespace KamelijaWeb.Controllers
     public class AppController: Controller
     {
         private readonly IMailService _mailService;
-        private readonly KamContext _context;
+        private readonly IKamRepository _repository;
 
-        public AppController(IMailService mailService, KamContext context)
+        public AppController(IMailService mailService, IKamRepository repository)
         {
             _mailService = mailService;
-            _context = context;
+            _repository = repository;
         }
         public IActionResult Index()
         {
-            var results = _context.Products.ToList();
+        
             return View();
         }
         [HttpGet("Contact")]
@@ -54,10 +54,8 @@ namespace KamelijaWeb.Controllers
         }
         public IActionResult Shop()
         {
-            var results = from p in _context.Products
-                         orderby p.Category
-                         select p;
-            return View(results.ToList());
+            var results = _repository.GetAllProducts();
+            return View(results);
         }
     }
 }

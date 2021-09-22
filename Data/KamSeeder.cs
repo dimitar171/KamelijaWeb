@@ -12,11 +12,11 @@ namespace KamelijaWeb.Data
     public class KamSeeder
     {
         private readonly KamContext _ctx;
-        private readonly KamContext _env;
+        private readonly IWebHostEnvironment _env;
         public KamSeeder(KamContext ctx,IWebHostEnvironment env)
         {
             _ctx = ctx;
-            _env = (KamContext)env;
+            _env = env;
         }
         public KamSeeder(KamContext ctx)
         {
