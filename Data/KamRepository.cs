@@ -24,7 +24,7 @@ namespace KamelijaWeb.Data
             _ctx.Add(model);
         }
 
-        public IEnumerable<Order> GetAllOrders()
+        public IEnumerable<Order> GetAllOrders(bool includeItems)
         {
             return _ctx.Orders
                 .Include(o => o.Items)
