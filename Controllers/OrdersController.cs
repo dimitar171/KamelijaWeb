@@ -32,7 +32,7 @@ namespace KamelijaWeb.Controllers
             try
             {
                 var result= _repository.GetAllOrders(includeItems);
-                return Ok(_mapper.Map<IEnumberable<OrderViewModel>>(result));
+                return Ok(_mapper.Map<IEnumerable<OrderViewModel>>(result));
             }
             catch(Exception ex)
             {
