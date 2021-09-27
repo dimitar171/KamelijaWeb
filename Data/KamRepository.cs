@@ -1,4 +1,5 @@
 ﻿using KamelijaWeb.Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,19 @@ namespace KamelijaWeb.Data
             _logger = logger;
         }
 
+        public void AddEntity(object model)
+        {
+            _ctx.Add(model);
+        }
+
+        public IEnumerable<Order> GetAllOrders()
+        {
+            return _ctx.Orders
+                .Include(o => o.Items)
+                .ThenInclude(i => i.Product)
+                .ToList();
+        }
+
         public IEnumerable<Product> GetAllProducts()
         {
             _logger.LogInformation("GetAllProducts");
@@ -26,6 +40,16 @@ namespace KamelijaWeb.Data
                 .OrderBy(p => p.Title)
                 .ToList();
         }
+
+        public Order GetOrderById(int id)
+        {
+            return _ctx.Orders
+               .Include(o => o.Items)
+               .ThenInclude(i => i.Product)
+               .Where(o => o.Id==id)
+               .FirstOrDefault();
+        }
+
         public IEnumerable<Product> GetProductsByCategory(string category)
         {
             return _ctx.Products
