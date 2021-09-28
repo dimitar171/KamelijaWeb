@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace KamelijaWeb.Data
 {
-    public class KamContext:IdentityDbContext
+    public class KamContext:IdentityDbContext<StoreUser>
     {
         private readonly IConfiguration _config;
         public KamContext(IConfiguration config)

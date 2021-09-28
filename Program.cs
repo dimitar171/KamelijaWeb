@@ -33,7 +33,7 @@ namespace KamelijaWeb
             using(var scope = scopeFactory.CreateScope())
             {
                 var seeder = scope.ServiceProvider.GetService<KamSeeder>();
-                seeder.Seed();
+                seeder.SeedAsync().Wait();
             }
         }
 
