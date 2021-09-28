@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using KamelijaWeb.ViewModels;
 using KamelijaWeb.Services;
 using KamelijaWeb.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace KamelijaWeb.Controllers
 {
@@ -52,6 +53,7 @@ namespace KamelijaWeb.Controllers
             ViewBag.Title = "За Нас";
             return View();
         }
+        [Authorize]
         public IActionResult Shop()
         {
             var results = _repository.GetAllProducts();
