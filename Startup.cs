@@ -1,8 +1,10 @@
 using KamelijaWeb.Data;
+using KamelijaWeb.Data.Entities;
 using KamelijaWeb.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -21,7 +23,12 @@ namespace KamelijaWeb
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            
+            services.AddIdentity<StoreUser, IdentityRole>(cfg=>
+            { cfg.User.RequireUniqueEmail = true;
+            })
+
+            .AddEntityFrameworkStores<KamContext>();
+
             services.AddDbContext<KamContext>();
             services.AddTransient<KamSeeder>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
@@ -49,6 +56,8 @@ namespace KamelijaWeb
            
             app.UseStaticFiles();
             app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
             app.UseEndpoints(cfg =>
             {
                 cfg.MapRazorPages();
