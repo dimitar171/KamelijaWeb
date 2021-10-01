@@ -8,9 +8,12 @@
   "Loggin": {
     "LogLevel": {
       "Default": "Information",
-      "Microsoft":"Warning"
-      
-       
+      "Microsoft": "Warning"
     }
+  },
+  "Tokens": {
+    "Key": ";adasdsa;;dasda;dasda;",
+    "Issuer": "http://localhost:8888",
+    "Audience": "http://localhost:8888"
   }
 }
